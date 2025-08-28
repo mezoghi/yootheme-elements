@@ -1,0 +1,282 @@
+{
+    "@import": "./element.php",
+    "name": "Product_item",
+    "title": "Item",
+    "width": 500,
+    "placeholder": {
+        "props": {
+            "title": "Title",
+            "meta": "",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "image": "",
+            "video": "",
+            "icon": "",
+            "hover_image": "",
+            "hover_video": ""
+        }
+    },
+    "updates": "./updates.php",
+    "templates": {
+        "render": "./templates/template.php",
+        "content": "./templates/content.php"
+    },
+    "fields": {
+        "title": {
+            "label": "Title",
+            "source": true
+        },
+        "meta": {
+            "label": "Meta",
+            "source": true
+        },
+        "content": {
+            "label": "Content",
+            "type": "editor",
+            "source": true
+        },
+        "image": {
+            "label": "Image",
+            "type": "image",
+            "source": true,
+            "show": "!video",
+            "altRef": "%name%_alt"
+        },
+        "video": {
+            "label": "Video",
+            "description": "Select a video file or enter a link from <a href=\"https://www.youtube.com\" target=\"_blank\">YouTube</a> or <a href=\"https://vimeo.com\" target=\"_blank\">Vimeo</a>.",
+            "type": "video",
+            "source": true,
+            "show": "!image"
+        },
+        "image_alt": {
+            "label": "Image Alt",
+            "source": true,
+            "show": "image && !video"
+        },
+        "icon": {
+            "label": "Icon",
+            "description": "Instead of using a custom image, you can click on the pencil to pick an icon from the icon library.",
+            "type": "icon",
+            "source": true,
+            "enable": "!image && !video"
+        },
+        "link": "${builder.link}",
+        "link_text": {
+            "label": "Link Text",
+            "description": "Set a different link text for this item.",
+            "source": true,
+            "enable": "link"
+        },
+        "link_aria_label": {
+            "label": "Link ARIA Label",
+            "description": "Set a different link ARIA label for this item.",
+            "source": true,
+            "enable": "link"
+        },
+        "hover_image": {
+            "label": "Hover Image",
+            "description": "Select an optional image that appears on hover.",
+            "type": "image",
+            "source": true,
+            "show": "!hover_video",
+            "enable": "image || video"
+        },
+        "hover_video": {
+            "label": "Hover Video",
+            "description": "Select an optional video that appears on hover.",
+            "type": "video",
+            "source": true,
+            "show": "!hover_image",
+            "enable": "image || video"
+        },
+        "tags": {
+            "label": "General Tags",
+            "description": "Enter a comma-separated list of general tags, for example, <code>featured, new, popular</code>.",
+            "source": true
+        },
+        "tag1_label": {
+            "label": "Tag 1 Label",
+            "description": "Custom label for first tag category (e.g., 'Colors', 'Brands')",
+            "attrs": {
+                "placeholder": "Tag 1"
+            },
+            "source": true
+        },
+        "tag1": {
+            "label": "Tag 1 Values",
+            "description": "Enter comma-separated tags for first category (e.g., 'red, blue, green')",
+            "source": true
+        },
+        "tag2_label": {
+            "label": "Tag 2 Label",
+            "description": "Custom label for second tag category (e.g., 'Sizes', 'Materials')",
+            "attrs": {
+                "placeholder": "Tag 2"
+            },
+            "source": true
+        },
+        "tag2": {
+            "label": "Tag 2 Values", 
+            "description": "Enter comma-separated tags for second category (e.g., 'small, medium, large')",
+            "source": true
+        },
+        "panel_style": {
+            "label": "Style",
+            "description": "Select one of the boxed card or tile styles or a blank panel.",
+            "type": "select",
+            "options": {
+                "None": "",
+                "Card Default": "card-default",
+                "Card Primary": "card-primary",
+                "Card Secondary": "card-secondary",
+                "Card Hover": "card-hover",
+                "Tile Default": "tile-default",
+                "Tile Muted": "tile-muted",
+                "Tile Primary": "tile-primary",
+                "Tile Secondary": "tile-secondary"
+            }
+        },
+        "item_element": "${builder.html_element_item}",
+        "lightbox_image_focal_point": {
+            "label": "Image Focal Point",
+            "description": "Set a focal point to adjust the image focus when cropping.",
+            "type": "select",
+            "options": {
+                "Top Left": "top-left",
+                "Top Center": "top-center",
+                "Top Right": "top-right",
+                "Center Left": "center-left",
+                "Center Center": "",
+                "Center Right": "center-right",
+                "Bottom Left": "bottom-left",
+                "Bottom Center": "bottom-center",
+                "Bottom Right": "bottom-right"
+            },
+            "source": true
+        },
+        "lightbox_text_color": {
+            "label": "Text Color",
+            "description": "Set light or dark color mode for text, buttons and controls.",
+            "type": "select",
+            "options": {
+                "None": "",
+                "Light": "light",
+                "Dark": "dark"
+            },
+            "source": true
+        },
+        "image_focal_point": {
+            "label": "Focal Point",
+            "description": "Set a focal point to adjust the image focus when cropping.",
+            "type": "select",
+            "options": {
+                "Top Left": "top-left",
+                "Top Center": "top-center",
+                "Top Right": "top-right",
+                "Center Left": "center-left",
+                "Center Center": "",
+                "Center Right": "center-right",
+                "Bottom Left": "bottom-left",
+                "Bottom Center": "bottom-center",
+                "Bottom Right": "bottom-right"
+            },
+            "source": true,
+            "enable": "image || video"
+        },
+        "image_text_color": {
+            "label": "Text Color",
+            "description": "Set light or dark color mode for text, buttons and controls if a sticky transparent navbar is displayed above.",
+            "type": "select",
+            "options": {
+                "None": "",
+                "Light": "light",
+                "Dark": "dark"
+            },
+            "source": true,
+            "enable": "image || video"
+        },
+        "hover_image_focal_point": {
+            "label": "Focal Point",
+            "description": "Set a focal point to adjust the image focus when cropping.",
+            "type": "select",
+            "options": {
+                "Top Left": "top-left",
+                "Top Center": "top-center",
+                "Top Right": "top-right",
+                "Center Left": "center-left",
+                "Center Center": "",
+                "Center Right": "center-right",
+                "Bottom Left": "bottom-left",
+                "Bottom Center": "bottom-center",
+                "Bottom Right": "bottom-right"
+            },
+            "source": true
+        },
+        "status": "${builder.statusItem}",
+        "source": "${builder.source}"
+    },
+    "fieldset": {
+        "default": {
+            "type": "tabs",
+            "fields": [
+                {
+                    "title": "Content",
+                    "fields": [
+                        "title",
+                        "meta",
+                        "content",
+                        "image",
+                        "video",
+                        "image_alt",
+                        "icon",
+                        "link",
+                        "link_text",
+                        "link_aria_label",
+                        "hover_image",
+                        "hover_video",
+                        "tags",
+                        "tag1_label",
+                        "tag1",
+                        "tag2_label",
+                        "tag2"
+                    ]
+                },
+                {
+                    "title": "Settings",
+                    "fields": [
+                        {
+                            "label": "Panel",
+                            "type": "group",
+                            "divider": true,
+                            "fields": ["panel_style", "item_element"]
+                        },
+                        {
+                            "label": "Lightbox",
+                            "type": "group",
+                            "divider": true,
+                            "fields": [
+                                "lightbox_image_focal_point",
+                                "lightbox_text_color"
+                            ]
+                        },
+                        {
+                            "label": "Image",
+                            "type": "group",
+                            "divider": true,
+                            "fields": [
+                                "image_focal_point",
+                                "image_text_color"
+                            ]
+                        },
+                        {
+                            "label": "Hover Image",
+                            "type": "group",
+                            "fields": ["hover_image_focal_point"]
+                        }
+                    ]
+                },
+                "${builder.advancedItem}"
+            ]
+        }
+    }
+}

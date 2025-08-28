@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Pagination with Filtering</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.14/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="app/multiselect-filter.css" />
+    <style>
+        .test-product {
+            border: 1px solid #e5e5e5;
+            padding: 20px;
+            margin: 10px;
+            background: #f8f8f8;
+            border-radius: 8px;
+        }
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Test: Dynamic Pagination with Filtering</h1>
+        
+        <div class="multiselect-filter-container" 
+             data-pagination="true" 
+             data-pagination-style="default"
+             data-items-per-page="3"
+             data-filter-logic="and" 
+             data-category-logic="or"
+             data-filter-animation="fade">
+            
+            <!-- Filter Controls -->
+            <div class="uk-margin">
+                <h3>Filters</h3>
+                <div class="uk-grid-small" uk-grid>
+                    <div>
+                        <label class="uk-form-label">
+                            <input type="checkbox" class="filter-all-checkbox uk-checkbox" checked> All
+                        </label>
+                    </div>
+                    <div>
+                        <label class="uk-form-label">
+                            <input type="checkbox" class="filter-tag-checkbox uk-checkbox" data-tag="red" data-category="color"> Red
+                        </label>
+                    </div>
+                    <div>
+                        <label class="uk-form-label">
+                            <input type="checkbox" class="filter-tag-checkbox uk-checkbox" data-tag="blue" data-category="color"> Blue
+                        </label>
+                    </div>
+                    <div>
+                        <label class="uk-form-label">
+                            <input type="checkbox" class="filter-tag-checkbox uk-checkbox" data-tag="large" data-category="size"> Large
+                        </label>
+                    </div>
+                    <div>
+                        <label class="uk-form-label">
+                            <input type="checkbox" class="filter-tag-checkbox uk-checkbox" data-tag="small" data-category="size"> Small
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="js-filter uk-grid-small" uk-grid>
+                <div class="test-product" data-tags="red,large">Product 1 - Red Large</div>
+                <div class="test-product" data-tags="blue,small">Product 2 - Blue Small</div>
+                <div class="test-product" data-tags="red,small">Product 3 - Red Small</div>
+                <div class="test-product" data-tags="blue,large">Product 4 - Blue Large</div>
+                <div class="test-product" data-tags="red,large">Product 5 - Red Large</div>
+                <div class="test-product" data-tags="blue,small">Product 6 - Blue Small</div>
+                <div class="test-product" data-tags="red,small">Product 7 - Red Small</div>
+                <div class="test-product" data-tags="blue,large">Product 8 - Blue Large</div>
+                <div class="test-product" data-tags="red,large">Product 9 - Red Large</div>
+                <div class="test-product" data-tags="blue,small">Product 10 - Blue Small</div>
+            </div>
+
+            <!-- No Results Message -->
+            <div class="no-results-message uk-text-center uk-margin" style="display: none;">
+                <p class="uk-text-muted">No products found matching your filters.</p>
+            </div>
+
+            <!-- Pagination Container -->
+            <div class="pagination-container uk-margin-top uk-text-center">
+                <ul class="uk-pagination uk-flex-center">
+                    <li class="pagination-prev"><a href="#"><span uk-pagination-previous></span></a></li>
+                    <li class="pagination-page uk-active" data-page="1"><a href="#">1</a></li>
+                    <li class="pagination-page" data-page="2"><a href="#">2</a></li>
+                    <li class="pagination-page" data-page="3"><a href="#">3</a></li>
+                    <li class="pagination-page" data-page="4"><a href="#">4</a></li>
+                    <li class="pagination-next"><a href="#"><span uk-pagination-next></span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="uk-margin-top">
+            <h3>Test Instructions:</h3>
+            <ol>
+                <li>Initially, you should see 3 products with standard pagination</li>
+                <li>Select any filter (e.g., "Red") - pagination should switch to "Load More" style</li>
+                <li>Click "Load More" to see more filtered items</li>
+                <li>Clear filters by selecting "All" - pagination should return to standard style</li>
+                <li>Test different filter combinations</li>
+            </ol>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.14/dist/js/uikit.min.js"></script>
+    <script src="app/multiselect-filter.js"></script>
+    <script src="app/pagination.js"></script>
+</body>
+</html>
