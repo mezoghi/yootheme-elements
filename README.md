@@ -39,24 +39,7 @@ products/
 └── README.md               # This documentation
 ```
 
-## ⚙️ Configuration Options
 
-### **Filter Settings**
-| Option | Type | Default | Description |
-|--------|------|---------|-------------|
-| `filter_multiselect` | Boolean | `false` | Enable multi-select filtering |
-| `filter_logic` | String | `and` | Logic between different categories |
-| `filter_category_logic` | String | `or` | Logic within same category |
-| `filter_multiselect_animation` | String | `fade` | Animation type (none, fade, slide, delayed-fade) |
-| `filter_no_results_message` | String | `"No products found"` | Message when no results |
-
-### **Pagination Settings**
-| Option | Type | Default | Description |
-|--------|------|---------|-------------|
-| `pagination` | Boolean | `false` | Enable pagination |
-| `pagination_items_per_page` | Integer | `6` | Items per page (1-50) |
-| `pagination_style` | String | `default` | Style (default, prev-next, load-more) |
-| `pagination_align` | String | `center` | Alignment (left, center, right) |
 
 ## 🎯 Filtering Logic Examples
 
